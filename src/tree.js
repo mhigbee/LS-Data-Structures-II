@@ -9,26 +9,22 @@ class Tree {
     // create the node
     // if the tree has no root, this node should be the root or the first node
     // if not, this node, should be a child of the parent node
-    // if (this.node.children[0] === undefined) {
-    console.log(node);
     this.children.push(node);
-    // } else {
-    //   return node;
-    // };
-  //     if(parent) {
-  //   parent.children.push(node);
-  // } else {
-  //   if(!this.root) {
-  //     this.root = node;
-  //   } else {
-  //     return 'Root node is already assigned';
-  //   }
-  // }
   }
 
-  // contains() {
-  //   this;
-  // }
+  contains(value) {
+    // recursive
+    if (this.value === value) {
+      return true;
+    }
+    for (let i = 0; i < this.children.length; i++) {
+      if (this.children[i].contains(value)) {
+        return true;
+      }
+    }
+    return false;
+    // return true or false
+  }
 }
 
 module.exports = Tree;
